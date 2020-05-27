@@ -1,0 +1,16 @@
+endpoint: ${env:PRISMA_ENDPOINT}
+
+secret: ${env:PRISMA_MANAGEMENT_API_SECRET}
+
+datamodel:
+  - account.graphql
+
+generate:
+  - generator: javascript-client
+    output: ../src/generated/prisma-client/
+  - generator: graphql-schema
+    output: ../src/generated/schema.graphql
+
+hooks:
+  post-deploy:
+    - echo "Deployment finished"

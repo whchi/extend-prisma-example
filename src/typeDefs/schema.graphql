@@ -1,0 +1,42 @@
+# import * from '../generated/schema.graphql';
+
+type Query {
+  # 查詢會員相關資料
+  member(
+    first: Int
+    id: ID
+    name: String
+    account: String
+    updatedAt_gte: String
+    uuid_in: [String]
+    account_contains: String
+    name_contains: String
+  ): [Member!]!
+  address(id: ID, first: Int): [Address]!
+}
+
+type Mutation {
+  upsertAddress(
+    account: String!
+    address: String!
+    country: String
+    city: String
+    district: String
+    postCode: String
+  ): Address
+
+  createMember(
+    account: String!
+    email: String
+    name: String
+    address: AddressCreateWithoutMemberInput
+  ): Member
+
+  updateMember(
+    id: ID
+    account: String
+    email: String
+    name: String
+    address: AddressUpdateWithoutMemberDataInput
+  ): Member
+}
