@@ -3,13 +3,7 @@ type Member {
   account: String! @unique
   email: String! @unique
   name: String!
-  """
-  聯絡資訊
-  """
   address: Address @relation(link: INLINE)
-  """
-  額外資料
-  """
   createdAt: DateTime @createdAt
   updatedAt: DateTime @updatedAt
 }
@@ -20,13 +14,7 @@ Address Object
 type Address {
   id: ID! @id
   member: Member
-  """
-  地址
-  """
   address: String
-  """
-  區
-  """
   district: String # 行政區
   postCode: String # 郵編
   city: String # 城市
