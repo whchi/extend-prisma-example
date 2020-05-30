@@ -1,7 +1,6 @@
 # import * from '../generated/schema.graphql';
 
 type Query {
-  # 查詢會員相關資料
   member(
     first: Int
     id: ID
