@@ -8,9 +8,6 @@ type Member {
   updatedAt: DateTime @updatedAt
 }
 
-"""
-Address Object
-"""
 type Address {
   id: ID! @id
   member: Member
